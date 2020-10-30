@@ -1,38 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Box, Header, Menu, Main, ResponsiveContext, Text } from 'grommet';
-import { Menu as MenuIcon } from 'grommet-icons';
+import Image from 'next/image';
+import { Box, Button, Header, Layer, Sidebar, Text } from 'grommet';
+import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
+
+
+const SiteSidebar = ({ }) => {
+  const headerLinks = [
+    {label: 'Home', href: "/"},
+    {label: 'Services', href: "/services"},
+    {label: 'Tech', href: "/tech"},
+    {label: 'About', href: "/about"},
+  ]
+
+  return (
+    <Layer full="vertical" background="black" position="right">
+      <Box pad="medium" background="black" width="medium" fill="vertical">
+        <Sidebar>
+          <Box pad="medium" gap="large">
+            {headerLinks.map((link) => {
+              return (
+                <Button
+                  href={link.href}
+                  children={() => (
+                    <Box fill="horizontal" pad="medium">
+                      <Text color="white">{link.label}</Text>
+                    </Box>
+                  )}
+                  />
+              )
+            })}
+          </Box>
+        </Sidebar>
+      </Box>
+
+    </Layer>
+  )
+}
 
 const SiteHeader = () => {
-  const headerLinks = [
-    {label: 'About', href: "/about"},
-    {label: 'Services', href: "/services"},
-    {label: 'Contact', href: "/contact"}
-  ]
+
+  const [showMenu, setShowMenu] = useState(false);
+  const toggleShowMenu = () => {
+    setShowMenu(!showMenu);
+  }
+
+  const icon = showMenu ? <CloseIcon color="white" /> : <MenuIcon />
   return (
-      <Header background="light-1" pad="medium">
-        <Link href="/">Chris Raible</Link>
-        <ResponsiveContext>
-          { size =>
-              size === 'small' ? (
-                <Box>
-                    <Menu
-                        items={headerLinks}
-                        icon={<MenuIcon />}
-                        dropAlign={{'top': 'top', 'right': 'right'}}
-                        justifyContent="end"
-                    />
-                </Box>
-              ) : (
-                <Box direction="row" gap="medium">
-                    {headerLinks.map((link) => {
-                        return <Link href={link.href}>{link.label}</Link>
-                    })}
-                </Box>
-              )
-          }
-        </ResponsiveContext>
+    <React.Fragment>
+      <Header background="white" style={{position: "absolute", top: 0, width: '100%'}} pad="medium" >
+        <Box fill="horizontal" justify="between" direction="row" animation={{type: "slideUp", size: "large", duration: 1000 }}>
+          <Box>
+            <Link href="/">
+              <Image
+                src={'/CR.svg'}
+                width={84}
+                height={46}
+              />
+            </Link>
+          </Box>
+          <Box>
+            <Button style={{zIndex: 9999}} icon={icon} onClick={toggleShowMenu} />
+          </Box>
+        </Box>
+
       </Header>
+
+      { showMenu && (<SiteSidebar />) }
+    </React.Fragment>
+
   )
 }
 

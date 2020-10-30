@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head'
-import { Header, Main, ResponsiveContext, Text } from 'grommet';
+import { Box, Heading, Main, ResponsiveContext, Text } from 'grommet';
 import SiteHeader from '../components/SiteHeader';
 
 export default function Home() {
@@ -11,8 +11,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SiteHeader />
-      <Main>
-
+      <Main pad="xlarge" align="center">
+        <Box width="large">
+          <Heading>About Chris</Heading>
+        </Box>
       </Main>
     </React.Fragment>
   )

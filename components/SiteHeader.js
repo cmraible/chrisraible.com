@@ -5,7 +5,7 @@ import { Box, Button, Header, Layer, Sidebar, Text } from 'grommet';
 import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
 
 
-const SiteSidebar = ({ }) => {
+const SiteSidebar = ({ onClose }) => {
   const headerLinks = [
     {label: 'Home', href: "/"},
     {label: 'Services', href: "/services"},
@@ -14,17 +14,19 @@ const SiteSidebar = ({ }) => {
   ]
 
   return (
-    <Layer full="vertical" background="black" position="right">
-      <Box pad="medium" background="black" width="medium" fill="vertical">
+    <Layer full="vertical" position="right">
+      <Box pad="medium" background="dark-1" style={{zIndex: 50}} width="medium" fill="vertical">
+        <Button pad="medium" alignSelf="end" icon={<CloseIcon color="white" />} onClick={onClose} />
         <Sidebar>
-          <Box pad="medium" gap="large">
+          <Box pad="medium" gap="medium">
             {headerLinks.map((link) => {
               return (
                 <Button
                   href={link.href}
+                  plain
                   children={() => (
-                    <Box fill="horizontal" pad="medium">
-                      <Text color="white">{link.label}</Text>
+                    <Box fill="horizontal" pad="small">
+                      <Text size="large" color="white">{link.label}</Text>
                     </Box>
                   )}
                   />
@@ -41,18 +43,16 @@ const SiteSidebar = ({ }) => {
 const SiteHeader = () => {
 
   const [showMenu, setShowMenu] = useState(false);
-  const toggleShowMenu = () => {
-    setShowMenu(!showMenu);
-  }
 
   const icon = showMenu ? <CloseIcon color="white" /> : <MenuIcon />
   return (
     <React.Fragment>
-      <Header background="white" style={{position: "absolute", top: 0, width: '100%'}} pad="medium" >
+      <Header background="white" style={{position: "absolute", top: 0, width: '100%', zIndex: 1}} pad="medium" >
         <Box fill="horizontal" justify="between" direction="row" animation={{type: "slideUp", size: "large", duration: 1000 }}>
           <Box>
             <Link href="/">
               <Image
+                style={{position: 'relative', zIndex: '-1'}}
                 src={'/CR.svg'}
                 width={84}
                 height={46}
@@ -60,13 +60,13 @@ const SiteHeader = () => {
             </Link>
           </Box>
           <Box>
-            <Button style={{zIndex: 9999}} icon={icon} onClick={toggleShowMenu} />
+            <Button icon={<MenuIcon />} onClick={() => setShowMenu(true)} />
           </Box>
         </Box>
 
       </Header>
 
-      { showMenu && (<SiteSidebar />) }
+      { showMenu && (<SiteSidebar onClose={() => setShowMenu(false)} />) }
     </React.Fragment>
 
   )

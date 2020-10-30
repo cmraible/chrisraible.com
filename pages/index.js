@@ -20,24 +20,73 @@ export default function Home() {
         </Box>
 
         <DiagonalSection background="#000040">
-          <Heading>Marketing Websites</Heading>
-          <Paragraph>Make your first impression count.</Paragraph>
+          <Box direction="row-responsive" fill="horizontal" justify="between">
+            <Box>
+              <Heading>Marketing Websites</Heading>
+              <Paragraph>Reach your customers with a custom website.</Paragraph>
+            </Box>
+            <Box>
+              <Image
+                style={{zIndex: '-1'}}
+                src="/website_drawing.svg"
+                width={600}
+                height={600}
+              />
+            </Box>
+          </Box>
         </DiagonalSection>
 
 
         <DiagonalSection background="#FFFFFF">
-          <Heading>Ecommerce</Heading>
-          <Paragraph>List products, accept orders and payments online.</Paragraph>
+        <Box direction="row-responsive" fill="horizontal" justify="between">
+            <Box>
+              <Heading>Ecommerce</Heading>
+              <Paragraph>List products, accept orders and payments online.</Paragraph>
+            </Box>
+            <Box>
+              <Image
+                src="/ecommerce_drawing.svg"
+                width={600}
+                height={600}
+              />
+            </Box>
+          </Box>
         </DiagonalSection>
 
         <DiagonalSection background="#CCCCCC">
-          <Heading>Enterprise Integration</Heading>
-          <Paragraph></Paragraph>
+          <Box direction="row-responsive" fill="horizontal" justify="between">
+            <Box>
+            <Heading>Enterprise Integration</Heading>
+            <Paragraph>Integrate with the tools you already use.</Paragraph>
+            </Box>
+            <Box>
+              <Image
+                style={{zIndex: '-1'}}
+                src="/enterprise_drawing.svg"
+                width={600}
+                height={600}
+              />
+            </Box>
+          </Box>
+
         </DiagonalSection>
 
         <DiagonalSection background="#FFFFFF">
-          <Heading>Analytics</Heading>
-          <Paragraph></Paragraph>
+        <Box direction="row-responsive" fill="horizontal" justify="between">
+          <Box>
+            <Heading>Analytics</Heading>
+            <Paragraph>Understand your customers better.</Paragraph>
+          </Box>
+            <Box>
+              <Image
+                style={{zIndex: '-1'}}
+                src="/analytics_drawing.svg"
+                width={600}
+                height={600}
+              />
+            </Box>
+          </Box>
+
         </DiagonalSection>
 
       </Box>

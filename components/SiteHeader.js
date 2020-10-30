@@ -16,8 +16,8 @@ const SiteSidebar = ({ onClose }) => {
   return (
     <Layer full="vertical" position="right">
       <Box pad="medium" background="dark-1" style={{zIndex: 50}} width="medium" fill="vertical">
-        <Button pad="medium" alignSelf="end" icon={<CloseIcon color="white" />} onClick={onClose} />
-        <Sidebar>
+        <Button alignSelf="end" icon={<CloseIcon color="white" />} onClick={onClose} />
+        <Sidebar pad={{top: 'xlarge'}}>
           <Box pad="medium" gap="medium">
             {headerLinks.map((link) => {
               return (

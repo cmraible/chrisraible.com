@@ -53,7 +53,7 @@ const SiteHeader = () => {
             <Link href="/">
               <Image
                 style={{position: 'relative', zIndex: '-1'}}
-                src={'/CR.svg'}
+                src={'/CR.png'}
                 width={84}
                 height={46}
               />

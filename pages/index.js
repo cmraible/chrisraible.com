@@ -1,16 +1,21 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import Image from 'next/image';
 import DiagonalSection from '../components/DiagonalSection';
-import { Box, Carousel, Heading, Main, ResponsiveContext, Text, Paragraph } from 'grommet';
+import { Box, Heading, Paragraph } from 'grommet';
+import {
+  FormNextLink
+} from 'grommet-icons';
 import SiteHeader from '../components/SiteHeader';
+import SiteFooter from '../components/SiteFooter';
 
 export default function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>Chris Raible: Web Developer</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Web Design and Web Development: Chris Raible</title>
+        <link rel="icon" href="/favicon-96x96.png" />
       </Head>
       <SiteHeader />
       <Box align="center" justify="start">
@@ -23,7 +28,10 @@ export default function Home() {
           <Box direction="row-responsive" fill="horizontal" justify="between">
             <Box>
               <Heading>Marketing Websites</Heading>
-              <Paragraph>Reach your customers with a custom website.</Paragraph>
+              <Paragraph size="xlarge">Impress your customers with an eye-catching website.</Paragraph>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Fast, reliable, and responsive website design</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Custom domain name, or bring-your-own</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Publish images, videos, testimonials, stories, etc.</Paragraph></Box>
             </Box>
             <Box>
               <Image
@@ -40,8 +48,11 @@ export default function Home() {
         <DiagonalSection background="#FFFFFF">
         <Box direction="row-responsive" fill="horizontal" justify="between">
             <Box>
-              <Heading>Ecommerce</Heading>
-              <Paragraph>List products, accept orders and payments online.</Paragraph>
+              <Heading>E-commerce</Heading>
+              <Paragraph size="xlarge">Do business online.</Paragraph>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Publish your product catalog online</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Accept customer orders and payments online</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Own the entire customer experience</Paragraph></Box>
             </Box>
             <Box>
               <Image
@@ -56,8 +67,13 @@ export default function Home() {
         <DiagonalSection background="#CCCCCC">
           <Box direction="row-responsive" fill="horizontal" justify="between">
             <Box>
-            <Heading>Enterprise Integration</Heading>
-            <Paragraph>Integrate with the tools you already use.</Paragraph>
+              <Heading>Enterprise Integration</Heading>
+              <Paragraph size="xlarge">Integrate with the tools you use today.</Paragraph>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Manage customer orders and inventory levels </Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Integrate with popular cloud tools Google Workspace or Microsoft Outlook</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Share data between your website and ERP system</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Include add-ons like live chat through Intercom</Paragraph></Box>
+
             </Box>
             <Box>
               <Image
@@ -75,7 +91,10 @@ export default function Home() {
         <Box direction="row-responsive" fill="horizontal" justify="between">
           <Box>
             <Heading>Analytics</Heading>
-            <Paragraph>Understand your customers better.</Paragraph>
+            <Paragraph size="xlarge">Understand your customer.</Paragraph>
+            <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Integrate with any number of analytics tools (Google Analytics, Segment, Mixpanel)</Paragraph></Box>
+            <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Measure important metrics, like conversion rates </Paragraph></Box>
+
           </Box>
             <Box>
               <Image
@@ -88,7 +107,7 @@ export default function Home() {
           </Box>
 
         </DiagonalSection>
-
+        <SiteFooter />
       </Box>
 
     </React.Fragment>

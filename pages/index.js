@@ -29,9 +29,9 @@ export default function Home() {
             <Box>
               <Heading>Marketing Websites</Heading>
               <Paragraph size="xlarge">Impress your customers with an eye-catching website.</Paragraph>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Fast, reliable, and responsive website design</Paragraph></Box>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Custom domain name, or bring-your-own</Paragraph></Box>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Publish images, videos, testimonials, stories, etc.</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Fast, reliable, and responsive website design</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Custom domain name, or bring-your-own</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Publish images, videos, testimonials, stories, etc.</Paragraph></Box>
             </Box>
             <Box>
               <Image
@@ -50,9 +50,9 @@ export default function Home() {
             <Box>
               <Heading>E-commerce</Heading>
               <Paragraph size="xlarge">Do business online.</Paragraph>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Publish your product catalog online</Paragraph></Box>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Accept customer orders and payments online</Paragraph></Box>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Own the entire customer experience</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Publish your product catalog online</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Accept customer orders and payments online</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Own the entire customer experience</Paragraph></Box>
             </Box>
             <Box>
               <Image
@@ -69,10 +69,10 @@ export default function Home() {
             <Box>
               <Heading>Enterprise Integration</Heading>
               <Paragraph size="xlarge">Integrate with the tools you use today.</Paragraph>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Manage customer orders and inventory levels </Paragraph></Box>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Integrate with popular cloud tools Google Workspace or Microsoft Outlook</Paragraph></Box>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Share data between your website and ERP system</Paragraph></Box>
-              <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Include add-ons like live chat through Intercom</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Manage customer orders and inventory levels </Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Integrate with popular cloud tools Google Workspace or Microsoft Outlook</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Share data between your website and ERP system</Paragraph></Box>
+              <Box align="center" direction="row"><FormNextLink /><Paragraph>Include add-ons like live chat through Intercom</Paragraph></Box>
 
             </Box>
             <Box>
@@ -92,8 +92,8 @@ export default function Home() {
           <Box>
             <Heading>Analytics</Heading>
             <Paragraph size="xlarge">Understand your customer.</Paragraph>
-            <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Integrate with any number of analytics tools (Google Analytics, Segment, Mixpanel)</Paragraph></Box>
-            <Box align="center" direction="row"><FormNextLink /><Paragraph style={{whiteSpace: 'nowrap'}}>Measure important metrics, like conversion rates </Paragraph></Box>
+            <Box align="center" direction="row"><FormNextLink /><Paragraph>Integrate with any number of analytics tools (Google Analytics, Segment, Mixpanel)</Paragraph></Box>
+            <Box align="center" direction="row"><FormNextLink /><Paragraph>Measure important metrics, like conversion rates </Paragraph></Box>
 
           </Box>
             <Box>

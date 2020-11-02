@@ -5,8 +5,15 @@ import Particles from 'react-particles-js';
 const BackgroundParticles = ({height, width}) => {
 
   return (
-
-        <Particles
+        <ResponsiveContext>
+            {
+                size => {
+                    switch(size) {
+                        case "small":
+                            return null
+                        default:
+                            return (
+<Particles
             height={height}
             canvasClassName="particles"
             params={{
@@ -26,7 +33,7 @@ const BackgroundParticles = ({height, width}) => {
                         "type": "circle"
                     },
                     "onHover": {
-                        "enable": true,
+                        "enable": false,
                         "mode": "connect",
                         "parallax": {
                         "enable": false,
@@ -413,8 +420,11 @@ const BackgroundParticles = ({height, width}) => {
                 "themes": []
             }}
         />
-
-
+                            )
+                    }
+                }
+            }
+        </ResponsiveContext>
   )
 }
 

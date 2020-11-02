@@ -2,21 +2,14 @@ import Particles from 'react-particles-js';
 import React from 'react';
 
 
-const BackgroundParticles = ({ background, color, children }) => {
-
+const BackgroundParticles = () => {
 
   return (
     <Particles
+        canvasClassName="particles"
         params={{
             "detectRetina": true,
             "fpsLimit": 60,
-            "infection": {
-                "cure": false,
-                "delay": 0,
-                "enable": false,
-                "infections": 0,
-                "stages": []
-            },
             "interactivity": {
                 "detectsOn": "window",
                 "events": {
@@ -421,7 +414,6 @@ const BackgroundParticles = ({ background, color, children }) => {
             "pauseOnBlur": true,
             "pauseOnOutsideViewport": false,
             "themes": []
-
         }}
     />
   )

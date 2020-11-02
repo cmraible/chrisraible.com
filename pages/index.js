@@ -16,14 +16,12 @@ export default function Home() {
         <meta name="description" content="Chris Raible is a web developer and industrial engineer." />
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
-      <Box align="center" justify="start">
-        <Box>
-          <Stack>
-            <BackgroundParticles />
+      <Box align="center" justify="start" fill="horizontal">
+
+        <Box fill="horizontal">
             <Box pad="medium" margin={{top: "xlarge"}}>
               <Heading size="xlarge">Business solutions for the modern web.</Heading>
             </Box>
-          </Stack>
         </Box>
 
         <DiagonalSection background="#000040">

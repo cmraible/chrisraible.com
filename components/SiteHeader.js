@@ -45,6 +45,7 @@ const SiteHeader = () => {
 
   // Change the header to white background when page is scrolled
   useEffect(() => {
+    // Because Grommet is overflow: auto, need to get grommet div element instead of window.scroll
     document.querySelector('#grommetContainer').addEventListener('scroll', (e) => {
       if (e.target.scrollTop > 0) {
         setBackground({

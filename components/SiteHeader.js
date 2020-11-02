@@ -65,7 +65,7 @@ const SiteHeader = () => {
   return (
     <React.Fragment>
       <Header background={background} pad="medium" >
-        <Box onClick={() => router.push('/')}>
+        <Box onClick={() => router.push('/')} animation={{type: 'slideUp', duration: 500, size: "medium"}}>
           <Image
             src={'/CR.png'}
             loading="eager"

@@ -39,25 +39,25 @@ const SiteHeader = () => {
   const [showMenu, setShowMenu] = useState(false);
   const router = useRouter();
 
+  console.log(window.pageYOffset)
+
   const icon = showMenu ? <CloseIcon color="white" /> : <MenuIcon />
   return (
     <React.Fragment>
-      <Header background="white" style={{position: "absolute", top: 0, width: '100%', zIndex: 1}} pad="medium" >
-        <Box fill="horizontal" justify="between" direction="row" animation={{type: "slideUp", size: "large", duration: 1000 }}>
-          <Box onClick={() => router.push('/')}>
-              <Image
-                style={{position: 'relative', zIndex: '-1'}}
-                src={'/CR.png'}
-                alt="CR Logo"
-                width={84}
-                height={46}
-              />
-          </Box>
-          <Box>
-            <Button icon={<MenuIcon />} onClick={() => setShowMenu(true)} />
-          </Box>
+      <Header pad="medium" >
+        <Box onClick={() => router.push('/')}>
+          <Image
+            src={'/CR.png'}
+            loading="eager"
+            priority
+            alt="CR Logo"
+            width={84}
+            height={46}
+          />
         </Box>
-
+        <Box animation={{type: 'slideUp', duration: 500, size: "medium"}}>
+          <Button icon={<MenuIcon />} onClick={() => setShowMenu(true)} />
+        </Box>
       </Header>
 
       { showMenu && (<SiteSidebar onClose={() => setShowMenu(false)} />) }

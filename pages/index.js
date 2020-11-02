@@ -1,8 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import BackgroundParticles from '../components/BackgroundParticles';
 import DiagonalSection from '../components/DiagonalSection';
-import { Box, Heading, Paragraph } from 'grommet';
+import { Box, Heading, Paragraph, Stack } from 'grommet';
 import {
   FormNextLink
 } from 'grommet-icons';
@@ -16,9 +17,13 @@ export default function Home() {
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
       <Box align="center" justify="start">
-        <Box pad="medium" margin={{top: "xlarge"}} fill>
-          <Heading size="xlarge">Business solutions for the modern web.</Heading>
-          <Paragraph></Paragraph>
+        <Box>
+          <Stack>
+            <BackgroundParticles />
+            <Box pad="medium" margin={{top: "xlarge"}}>
+              <Heading size="xlarge">Business solutions for the modern web.</Heading>
+            </Box>
+          </Stack>
         </Box>
 
         <DiagonalSection background="#000040">

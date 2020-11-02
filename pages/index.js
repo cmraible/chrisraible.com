@@ -1,14 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
 import DiagonalSection from '../components/DiagonalSection';
 import { Box, Heading, Paragraph } from 'grommet';
 import {
   FormNextLink
 } from 'grommet-icons';
-import SiteHeader from '../components/SiteHeader';
-import SiteFooter from '../components/SiteFooter';
 
 export default function Home() {
   return (

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
+import { Anchor, Box, Footer, Heading, Text } from 'grommet';
 import Image from 'next/image';
-import { Anchor, Box, Button, Footer, Heading, Layer, Sidebar, Text } from 'grommet';
-import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
+import Link from 'next/link';
+import React from 'react';
 
-const SiteFooter = ({children}) => {
+const SiteFooter = () => {
 
   return (
     <Box fill="horizontal">

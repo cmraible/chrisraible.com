@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box } from 'grommet';
-import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
+import SiteHeader from './SiteHeader';
 
 const SiteLayout = ({children}) => {
 

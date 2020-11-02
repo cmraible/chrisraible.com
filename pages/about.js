@@ -1,8 +1,6 @@
 import React from 'react';
 import Head from 'next/head'
 import { Box, Heading, Paragraph } from 'grommet';
-import SiteHeader from '../components/SiteHeader';
-import SiteFooter from '../components/SiteFooter';
 import DiagonalSection from '../components/DiagonalSection';
 
 export default function About() {

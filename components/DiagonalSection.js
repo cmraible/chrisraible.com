@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Box, Button, Header, Layer, Sidebar, Text } from 'grommet';
-import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
+import React from 'react';
+import { Box } from 'grommet';
 
 
 const DiagonalSection = ({ background, color, children }) => {
@@ -19,7 +16,6 @@ const DiagonalSection = ({ background, color, children }) => {
       <svg height="100px" width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
         <polygon fill={background} points="0,0 0,100 100,0"/>
       </svg>
-
     </Box>
   )
 }

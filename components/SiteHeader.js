@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { Box, Button, Header, Layer, Sidebar, Text } from 'grommet';
+import { Close as CloseIcon, Menu as MenuIcon } from 'grommet-icons';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
-import { Box, Button, Header, Layer, Sidebar, Text } from 'grommet';
-import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
+import React, { useState } from 'react';
 
 
 const SiteSidebar = ({ onClose }) => {

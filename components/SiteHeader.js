@@ -64,20 +64,23 @@ const SiteHeader = () => {
   const icon = showMenu ? <CloseIcon color="white" /> : <MenuIcon />
   return (
     <React.Fragment>
-      <Header background={background} pad="medium" >
-        <Box onClick={() => router.push('/')} animation={{type: 'slideUp', duration: 500, size: "medium"}}>
-          <Image
-            src={'/CR.png'}
-            loading="eager"
-            priority
-            alt="CR Logo"
-            width={84}
-            height={46}
-          />
+      <Header background={background} pad="medium">
+        <Box direction="row" fill="horizontal" justify="between">
+          <Box onClick={() => router.push('/')} animation={{type: 'slideUp', duration: 1000, size: "medium"}}>
+            <Image
+              src={'/CR.png'}
+              loading="eager"
+              priority
+              alt="CR Logo"
+              width={84}
+              height={46}
+            />
+          </Box>
+          <Box animation={{type: 'slideUp', duration: 500, size: "medium"}}>
+            <Button icon={<MenuIcon />} onClick={() => setShowMenu(true)} />
+          </Box>
         </Box>
-        <Box animation={{type: 'slideUp', duration: 500, size: "medium"}}>
-          <Button icon={<MenuIcon />} onClick={() => setShowMenu(true)} />
-        </Box>
+
       </Header>
 
       { showMenu && (<SiteSidebar onClose={() => setShowMenu(false)} />) }

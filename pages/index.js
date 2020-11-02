@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import BackgroundParticles from '../components/BackgroundParticles';
@@ -9,6 +9,16 @@ import {
 } from 'grommet-icons';
 
 export default function Home() {
+
+  const [height, setHeight] = useState();
+
+  useEffect(() => {
+    setHeight(window.outerHeight*.8);
+    window.addEventListener('resize', (e) => {
+      setHeight(e.target.outerHeight*.8)
+    })
+  });
+
   return (
     <React.Fragment>
       <Head>
@@ -18,11 +28,15 @@ export default function Home() {
       </Head>
       <Box align="center" justify="start" fill="horizontal">
 
-        <Box fill="horizontal">
+        <Box height={'80vh'}>
+          <Stack guidingChild="last">
+            <BackgroundParticles height={height} />
             <Box pad="medium" margin={{top: "xlarge"}}>
               <Heading size="xlarge">Business solutions for the modern web.</Heading>
             </Box>
+          </Stack>
         </Box>
+
 
         <DiagonalSection background="#000040">
           <Box direction="row-responsive" fill="horizontal" justify="between">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { Box, Button, Header, Layer, Sidebar, Text } from 'grommet';
 import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
@@ -22,7 +23,7 @@ const SiteSidebar = ({ onClose }) => {
           <Box pad="medium" gap="medium" align="center" justify="center">
             {headerLinks.map((link) => {
               return (
-                <Text size="xxlarge"><Link href={link.href}>{link.label}</Link></Text>
+                <Text size="xxlarge" onClick={onClose}><Link href={link.href}>{link.label}</Link></Text>
               )
             })}
           </Box>
@@ -36,14 +37,14 @@ const SiteSidebar = ({ onClose }) => {
 const SiteHeader = () => {
 
   const [showMenu, setShowMenu] = useState(false);
+  const router = useRouter();
 
   const icon = showMenu ? <CloseIcon color="white" /> : <MenuIcon />
   return (
     <React.Fragment>
       <Header background="white" style={{position: "absolute", top: 0, width: '100%', zIndex: 1}} pad="medium" >
         <Box fill="horizontal" justify="between" direction="row" animation={{type: "slideUp", size: "large", duration: 1000 }}>
-          <Box>
-            <Link href="/">
+          <Box onClick={() => router.push('/')}>
               <Image
                 style={{position: 'relative', zIndex: '-1'}}
                 src={'/CR.png'}
@@ -51,7 +52,6 @@ const SiteHeader = () => {
                 width={84}
                 height={46}
               />
-            </Link>
           </Box>
           <Box>
             <Button icon={<MenuIcon />} onClick={() => setShowMenu(true)} />

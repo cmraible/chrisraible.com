@@ -17,7 +17,6 @@ export default function Home() {
         <title>Web Design and Web Development: Chris Raible</title>
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
-      <SiteHeader />
       <Box align="center" justify="start">
         <Box pad="medium" margin={{top: "xlarge"}} fill>
           <Heading size="xlarge">Business solutions for the modern web.</Heading>
@@ -111,7 +110,6 @@ export default function Home() {
           </Box>
 
         </DiagonalSection>
-        <SiteFooter />
       </Box>
 
     </React.Fragment>

@@ -12,7 +12,6 @@ export default function About() {
         <title>Chris Raible: About</title>
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
-      <SiteHeader />
       <Box fill="horizontal" align="center" margin={{top: "xlarge"}}>
         <Heading>About</Heading>
         <DiagonalSection background={'#DDDDDD'}>
@@ -54,7 +53,6 @@ export default function About() {
               I had always admired Tesla for its mission, products, and ambition, so I jumped at the opportunity to move across the country to help launch the Model 3. I spent about 3 years at Tesla building internal web tools before leaving Tesla to start my own company.
           </Paragraph>
         </DiagonalSection>
-        <SiteFooter />
 
       </Box>
     </React.Fragment>

@@ -12,6 +12,7 @@ export default function Home() {
     <React.Fragment>
       <Head>
         <title>Web Design and Web Development: Chris Raible</title>
+        <meta name="description" content="Chris Raible is a web developer and industrial engineer." />
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
       <Box align="center" justify="start">

@@ -8,6 +8,7 @@ export default function About() {
     <React.Fragment>
       <Head>
         <title>Chris Raible: About</title>
+        <meta name="description" content="Chris is a web developer and an industrial engineer." />
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
       <Box fill="horizontal" align="center" margin={{top: "xlarge"}}>

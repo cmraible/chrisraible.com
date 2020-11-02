@@ -1,9 +1,11 @@
 import { Anchor, Box, Footer, Heading, Text } from 'grommet';
 import Image from 'next/image';
+import { Router, useRouter } from 'next/router';
 import Link from 'next/link';
 import React from 'react';
 
 const SiteFooter = () => {
+  const router = useRouter();
 
   return (
     <Box fill="horizontal">
@@ -11,8 +13,7 @@ const SiteFooter = () => {
         <polygon fill="#CCCCCC" points="0,100 100,0 100,100"/>
       </svg>
       <Footer fill="horizontal" background="#CCCCCC" style={{width: '100%', zIndex: 1}} pad="medium" >
-      <Box>
-        <Link href="/">
+      <Box onClick={() => router.push('/')}>
           <Image
             style={{position: 'relative', zIndex: '-1'}}
             src={'/CR.png'}
@@ -20,9 +21,8 @@ const SiteFooter = () => {
             width={84}
             height={46}
           />
-        </Link>
         <Box pad="small">
-          <Heading level={3}>Contact me</Heading>
+          <Heading level={2}>Contact me</Heading>
           <Text>Email: <Anchor href="mailto:chris@chrisraible.com">chris@chrisraible.com</Anchor></Text>
           <Text>Phone: (215) 490-3329</Text>
         </Box>

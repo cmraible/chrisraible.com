@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Box, Button, Header, Heading, Layer, Sidebar, Text } from 'grommet';
+import { Box, Button, Header, Layer, Sidebar, Text } from 'grommet';
 import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
 
 
@@ -9,6 +9,7 @@ const SiteSidebar = ({ onClose }) => {
   const headerLinks = [
     {label: 'Home', href: "/"},
     {label: 'About', href: "/about"},
+    {label: 'Contact', href: "/contact"}
   ]
 
   return (
@@ -18,18 +19,10 @@ const SiteSidebar = ({ onClose }) => {
       </Box>
       <Box pad="medium" background="dark-1" style={{zIndex: 9}} fill>
         <Sidebar>
-          <Box pad="medium" gap="medium">
+          <Box pad="medium" gap="medium" align="center" justify="center">
             {headerLinks.map((link) => {
               return (
-                <Button
-                  href={link.href}
-                  plain
-                  children={() => (
-                    <Box fill="horizontal" pad="small" align="center">
-                      <Heading margin="none" textAlign="center" color="white">{link.label}</Heading>
-                    </Box>
-                  )}
-                  />
+                <Text size="xxlarge"><Link href={link.href}>{link.label}</Link></Text>
               )
             })}
           </Box>

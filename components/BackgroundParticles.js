@@ -52,7 +52,7 @@ const BackgroundParticles = ({height, width}) => {
                     "connect": {
                         "distance": 200,
                         "links": {
-                        "opacity": 0.1
+                        "opacity": 0.2
                         },
                         "radius": 200
                     },
@@ -345,13 +345,8 @@ const BackgroundParticles = ({height, width}) => {
                     "warp": false
                     },
                     "number": {
-                    "density": {
-                        "enable": true,
-                        "area": 800,
-                        "factor": 1000
-                    },
-                    "limit": 0,
-                    "value": 100
+                        "limit": 0,
+                        "value": 40
                     },
                     "opacity": {
                     "value": 1

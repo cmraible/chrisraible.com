@@ -6,7 +6,7 @@ import SiteLayout from '../components/SiteLayout';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Grommet theme={theme} full>
+    <Grommet theme={theme} full id="grommetContainer">
       <SiteLayout>
         <Component {...pageProps} />
       </SiteLayout>

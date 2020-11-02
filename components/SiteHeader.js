@@ -3,7 +3,7 @@ import { Close as CloseIcon, Menu as MenuIcon } from 'grommet-icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const SiteSidebar = ({ onClose }) => {
@@ -37,14 +37,33 @@ const SiteSidebar = ({ onClose }) => {
 const SiteHeader = () => {
 
   const [showMenu, setShowMenu] = useState(false);
+  const [background, setBackground] = useState({
+    color: "white",
+    opacity: 0
+  })
   const router = useRouter();
 
-  console.log(window.pageYOffset)
+  // Change the header to white background when page is scrolled
+  useEffect(() => {
+    document.querySelector('#grommetContainer').addEventListener('scroll', (e) => {
+      if (e.target.scrollTop > 0) {
+        setBackground({
+          color: "white",
+          opacity: 1
+        })
+      } else {
+        setBackground({
+          color: "white",
+          opacity: 0
+        })
+      }
+    })
+  }, []);
 
   const icon = showMenu ? <CloseIcon color="white" /> : <MenuIcon />
   return (
     <React.Fragment>
-      <Header pad="medium" >
+      <Header background={background} pad="medium" >
         <Box onClick={() => router.push('/')}>
           <Image
             src={'/CR.png'}

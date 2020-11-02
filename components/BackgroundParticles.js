@@ -7,7 +7,6 @@ const BackgroundParticles = ({ background, color, children }) => {
 
   return (
     <Particles
-        height="200%"
         params={{
             "detectRetina": true,
             "fpsLimit": 60,
@@ -393,19 +392,7 @@ const BackgroundParticles = ({ background, color, children }) => {
                 "type": "circle"
                 },
                 "size": {
-                "random": {
-                    "enable": true,
-                    "minimumValue": 1
-                },
-                "value": 3,
-                "animation": {
-                    "destroy": "none",
-                    "enable": true,
-                    "minimumValue": 1,
-                    "speed": 3,
-                    "startValue": "max",
-                    "sync": false
-                }
+                "value": 2
                 },
                 "stroke": {
                 "width": 0,

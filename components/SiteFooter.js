@@ -17,6 +17,7 @@ const SiteFooter = ({children}) => {
           <Image
             style={{position: 'relative', zIndex: '-1'}}
             src={'/CR.png'}
+            alt="CR Logo"
             width={84}
             height={46}
           />

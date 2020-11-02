@@ -37,6 +37,7 @@ export default function Home() {
               <Image
                 style={{zIndex: '-1'}}
                 src="/website_drawing.svg"
+                alt="Marketing website graphic"
                 width={600}
                 height={600}
               />
@@ -57,6 +58,7 @@ export default function Home() {
             <Box>
               <Image
                 src="/ecommerce_drawing.svg"
+                alt="E-commerce graphic"
                 width={600}
                 height={600}
               />
@@ -79,6 +81,7 @@ export default function Home() {
               <Image
                 style={{zIndex: '-1'}}
                 src="/enterprise_drawing.svg"
+                alt="Enterprise integrations graphic"
                 width={600}
                 height={600}
               />
@@ -100,6 +103,7 @@ export default function Home() {
               <Image
                 style={{zIndex: '-1'}}
                 src="/analytics_drawing.svg"
+                alt="Analytics graphic"
                 width={600}
                 height={600}
               />

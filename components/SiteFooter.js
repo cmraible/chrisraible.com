@@ -21,11 +21,6 @@ const SiteFooter = () => {
             width={84}
             height={46}
           />
-        <Box pad="small">
-          <Heading level={2}>Contact me</Heading>
-          <Text>Email: <Anchor href="mailto:chris@chrisraible.com">chris@chrisraible.com</Anchor></Text>
-          <Text>Phone: (215) 490-3329</Text>
-        </Box>
       </Box>
       <Box align="end" gap="medium" pad={{horizontal: 'xlarge'}}>
       <Text size="xlarge">

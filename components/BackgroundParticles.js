@@ -5,7 +5,7 @@ import Particles from 'react-particles-js';
 const BackgroundParticles = ({ height, width }) => {
 
     return (
-        <ResponsiveContext>
+        <ResponsiveContext.Consumer>
             {
                 size => {
                     switch (size) {
@@ -418,7 +418,7 @@ const BackgroundParticles = ({ height, width }) => {
                     }
                 }
             }
-        </ResponsiveContext>
+        </ResponsiveContext.Consumer>
     )
 }
 

@@ -34,8 +34,9 @@ const Home = () => {
                   justify="center"
                   align="center"
                   pad="medium"
+                  margin={{top: "xlarge"}}
                   >
-                  <Box direction="row-responsive" gap="medium"  background={{color: "#FEFEFE", opacity: 0.9}} round="medium">
+                  <Box direction="row-responsive" gap="medium" pad="medium" background={{color: "#FEFEFE", opacity: 0.9}} round="medium">
                     <Avatar src="/avatar.jpeg" size="xlarge" />
                     <Box>
                       <Heading margin="none" size="medium">Hi, I'm Chris.</Heading>

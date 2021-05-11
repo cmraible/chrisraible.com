@@ -1,12 +1,10 @@
-import { Avatar, Box, Button, Header, Heading } from 'grommet';
-import { Twitter, Linkedin, Github } from 'grommet-icons';
+import { Box, Button, Header, Heading } from 'grommet';
+import { Github, Linkedin, Twitter } from 'grommet-icons';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const SiteHeader = () => {
 
-  const [showMenu, setShowMenu] = useState(false);
   const [background, setBackground] = useState({
     color: "white",
     opacity: 0
@@ -35,7 +33,7 @@ const SiteHeader = () => {
       <Header background={background} pad="small" id="siteHeader">
         <Box direction="row" fill="horizontal" justify="between">
           <Box direction="row" align="center" gap="small" onClick={() => router.push('/')}>
-            <Heading size="small" margin="none">Chris Raible</Heading>
+            <Heading color="text" size="small" margin="none">Chris Raible</Heading>
           </Box>
           <Box direction="row" align="center">
             <Button icon={<Twitter color="gray" />} onClick={() => router.push('https://twitter.com/RaibleChris')}/>

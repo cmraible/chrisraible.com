@@ -37,7 +37,7 @@ const Home = () => {
                   margin={{top: "xlarge"}}
                   >
                   <Box direction="row-responsive" gap="medium" pad="medium" background={{color: "#FEFEFE", opacity: 0.9}} round="medium">
-                    <Avatar src="/avatar.jpeg" size="xlarge" />
+                    <Avatar src="/avatar.jpeg" size="144px" />
                     <Box>
                       <Heading margin="none" size="medium">Hi, I'm Chris.</Heading>
                         <Paragraph>

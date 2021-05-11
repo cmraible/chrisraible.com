@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import "animate.css/animate.min.css";
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import BackgroundParticles from '../components/BackgroundParticles';
 import DiagonalSection from '../components/DiagonalSection';
-import { Box, Heading, Paragraph, Stack } from 'grommet';
+import { Anchor, Box, Card, CardHeader, CardBody, CardFooter, Heading, Paragraph, Text, Stack } from 'grommet';
 import {
-  FormNextLink
+  FormNextLink, FormDown
 } from 'grommet-icons';
+import Emoji from 'a11y-react-emoji';
 
-export default function Home() {
+
+const Home = () => {
 
   const [height, setHeight] = useState();
 
@@ -20,112 +24,49 @@ export default function Home() {
   }, []);
 
   return (
-    <React.Fragment>
-      <Head>
-        <title>Chris Raible | Web developer</title>
-        <meta name="description" content="Chris Raible is a web developer and industrial engineer." />
-        <link rel="icon" href="/favicon-96x96.png" />
-      </Head>
-      <Box align="center" justify="start" fill="horizontal">
+      <React.Fragment>
+        <Head>
+          <title>Chris Raible</title>
+          <meta name="description" content="Project manager by day; full-stack developer by night. I like building data-driven applications to solve problems for people." />
+        </Head>
+        <Box align="center" justify="start" fill="horizontal">
+          <Box height={'80vh'} fill="horizontal">
+            <Stack guidingChild="last" fill>
+                <BackgroundParticles height={height} />
+                <Box animation={{type: 'slideUp', duration: 1000, size: "medium"}} pad="xlarge" fill>
+                  <Box direction="row-responsive" gap="medium" align="start" justify="center" fill pad="xlarge" background={{color: "white", opacity: 0.5}}>
+                    <Box round="full" width="150px" height="150px" style={{overflow: 'hidden'}}>
+                      <Image
+                        src="/avatar.jpeg"
+                        width={150}
+                        height={150}
+                      />
+                    </Box>
+                    <Box>
+                      <Heading margin="none" size="large">Hi, I'm Chris.</Heading>
+                      <Paragraph>
+                        Project manager by day; full-stack developer by night. I like building data-driven applications to solve problems for people.
+                      </Paragraph>
+                      <Paragraph>
+                        Outside of my day job, I spend most of my time these days building <Anchor><Link href="https://routineops.com">RoutineOps</Link></Anchor> — a tool for teams to schedule recurring tasks to get shit done.
+                      </Paragraph>
+                    </Box>
+                  </Box>
 
-        <Box height={'80vh'}>
-          <Stack guidingChild="last">
-            <BackgroundParticles height={height} />
-            <Box pad="medium" margin={{top: "xlarge"}}>
-              <Heading size="xlarge">Business solutions for the modern web.</Heading>
-            </Box>
-          </Stack>
+                </Box>
+
+            </Stack>
+          </Box>
+          {/* <Box align="center" justify="end">
+            <Text color="dark-4">Scroll</Text>
+            <FormDown color="dark-4" />
+          </Box> */}
+            <DiagonalSection background="#272614">
+
+            </DiagonalSection>
         </Box>
-
-
-        <DiagonalSection background="#000040">
-          <Box direction="row-responsive" fill="horizontal" justify="between">
-            <Box>
-              <Heading>Marketing Websites</Heading>
-              <Paragraph size="xlarge">Impress your customers with an eye-catching website.</Paragraph>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Fast, reliable, and responsive website design</Paragraph></Box>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Custom domain name, or bring-your-own</Paragraph></Box>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Publish images, videos, testimonials, stories, etc.</Paragraph></Box>
-            </Box>
-            <Box>
-              <Image
-                style={{zIndex: '-1'}}
-                src="/website_drawing.svg"
-                alt="Marketing website graphic"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Box>
-        </DiagonalSection>
-
-
-        <DiagonalSection background="#FFFFFF">
-        <Box direction="row-responsive" fill="horizontal" justify="between">
-            <Box>
-              <Heading>E-commerce</Heading>
-              <Paragraph size="xlarge">Do business online.</Paragraph>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Publish your product catalog online</Paragraph></Box>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Accept customer orders and payments online</Paragraph></Box>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Own the entire customer experience</Paragraph></Box>
-            </Box>
-            <Box>
-              <Image
-                src="/ecommerce_drawing.svg"
-                alt="E-commerce graphic"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Box>
-        </DiagonalSection>
-
-        <DiagonalSection background="#CCCCCC">
-          <Box direction="row-responsive" fill="horizontal" justify="between">
-            <Box>
-              <Heading>Enterprise Integration</Heading>
-              <Paragraph size="xlarge">Integrate with the tools you use today.</Paragraph>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Manage customer orders and inventory levels </Paragraph></Box>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Integrate with popular cloud tools Google Workspace or Microsoft Outlook</Paragraph></Box>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Share data between your website and ERP system</Paragraph></Box>
-              <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Include add-ons like live chat through Intercom</Paragraph></Box>
-
-            </Box>
-            <Box>
-              <Image
-                style={{zIndex: '-1'}}
-                src="/enterprise_drawing.svg"
-                alt="Enterprise integrations graphic"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Box>
-
-        </DiagonalSection>
-
-        <DiagonalSection background="#FFFFFF">
-        <Box direction="row-responsive" fill="horizontal" justify="between">
-          <Box>
-            <Heading>Analytics</Heading>
-            <Paragraph size="xlarge">Understand your customer.</Paragraph>
-            <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Integrate with any number of analytics tools (Google Analytics, Segment, Mixpanel)</Paragraph></Box>
-            <Box align="center" direction="row" gap="medium"><FormNextLink /><Paragraph>Measure important metrics, like conversion rates </Paragraph></Box>
-
-          </Box>
-            <Box>
-              <Image
-                style={{zIndex: '-1'}}
-                src="/analytics_drawing.svg"
-                alt="Analytics graphic"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Box>
-
-        </DiagonalSection>
-      </Box>
-    </React.Fragment>
+      </React.Fragment>
   )
 }
+
+export default Home;

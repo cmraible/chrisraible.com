@@ -14,24 +14,10 @@ const SiteFooter = () => {
       </svg>
       <Footer fill="horizontal" background="#CCCCCC" style={{width: '100%', zIndex: 1}} pad="medium" >
       <Box onClick={() => router.push('/')}>
-          <Image
-            style={{position: 'relative', zIndex: '-1'}}
-            src={'/CR.png'}
-            alt="CR Logo"
-            width={84}
-            height={46}
-          />
+        <Heading size="small" margin="none">Chris Raible</Heading>
       </Box>
       <Box align="end" gap="medium" pad={{horizontal: 'xlarge'}}>
-      <Text size="xlarge">
-          <Link href="/">Home</Link>
-        </Text>
-        <Text size="xlarge">
-          <Link href="/about">About</Link>
-        </Text>
-        <Text size="xlarge">
-          <Link href="/contact">Contact</Link>
-        </Text>
+
       </Box>
 
       </Footer>

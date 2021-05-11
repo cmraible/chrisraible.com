@@ -9,13 +9,11 @@ const App = ({ Component, pageProps }) => {
 
 
     return (
-        <ParallaxProvider>
             <Grommet theme={theme} id="grommetContainer">
                 <SiteLayout>
                     <Component {...pageProps} />
                 </SiteLayout>
             </Grommet>
-        </ParallaxProvider>
     )
 }
 

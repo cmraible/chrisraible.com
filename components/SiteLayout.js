@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { Main } from 'grommet';
+import React from 'react';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
 
 const SiteLayout = ({children}) => {
 
   return (
-    <React.Fragment>
+      <Main flex={false} style={{overflow: 'hidden'}}>
         <SiteHeader />
             {children}
         <SiteFooter />
-    </React.Fragment>
+      </Main>
   )
 }
 

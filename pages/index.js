@@ -43,7 +43,7 @@ const Home = () => {
                           Project manager by day; full-stack developer by night. I like building data-driven applications to solve problems for people.
                         </Paragraph>
                         <Paragraph>
-                          Outside of my day job, I spend most of my time these days building <Link href="https://routineops.com"><Anchor>RoutineOps</Anchor></Link> — a tool for teams to schedule recurring tasks to get shit done.
+                          Outside of my day job, I spend most of my time these days building <Link href="https://routineops.com" passHref={true}><Anchor>RoutineOps</Anchor></Link> — a tool for teams to schedule recurring tasks to get shit done.
                         </Paragraph>
                     </Box>
                   </Box>

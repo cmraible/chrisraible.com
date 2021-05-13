@@ -30,7 +30,6 @@ const Home = () => {
                 <BackgroundParticles height={height} />
                 <Box
                   animation={{type: 'slideUp', duration: 1000, size: "medium"}}
-                  margin={{top: "xlarge"}}
                   justify="center"
                   align="center"
                   pad="medium"

@@ -1,11 +1,23 @@
-import '../styles/globals.css';
-import React, { useRef } from 'react';
-import theme from '../styles/theme';
 import { Grommet } from 'grommet';
+import React, { useEffect } from 'react';
 import SiteLayout from '../components/SiteLayout';
-import { ParallaxProvider } from 'react-scroll-parallax';
+import '../styles/globals.css';
+import theme from '../styles/theme';
+import { pageview } from '../lib/ga';
+import { useRouter } from 'next/router';
 
 const App = ({ Component, pageProps }) => {
+
+    const router = useRouter();
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+            pageview(url);
+        }
+        router.events.on('routeChangeComplete', handleRouteChange);
+        return () => {
+            router.events.off('routeChangeComplete', handleRouteChange);
+        }
+    }, [router.events]);
 
 
     return (

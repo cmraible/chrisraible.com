@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components';
+import { GA_TRACKING_ID } from '../lib/ga';
 
 export default class MyDocument extends Document {
   static getInitialProps ({ renderPage }) {
@@ -25,6 +26,19 @@ export default class MyDocument extends Document {
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
           <link rel="icon" type="image/jpeg" href="/avatar.jpeg" />
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}></script>
+          <script dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${GA_TRACKING_ID}');
+            `,
+          }}>
+
+          </script>
         </Head>
         <body>
           <Main />

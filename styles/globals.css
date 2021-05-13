@@ -21,6 +21,7 @@ header#siteHeader {
   top: 0;
   width: 100%;
   z-index: 1;
+  height: 54px;
 }
 
 .particles {

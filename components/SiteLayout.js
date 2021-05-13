@@ -6,7 +6,7 @@ import SiteHeader from './SiteHeader';
 const SiteLayout = ({children}) => {
 
   return (
-      <Main flex={false} style={{overflow: 'hidden'}}>
+      <Main>
         <SiteHeader />
             {children}
         <SiteFooter />

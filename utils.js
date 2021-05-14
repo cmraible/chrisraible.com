@@ -6,5 +6,7 @@ function importAll(r) {
 }
 
 export const posts = importAll(
-    require.context("./pages/blog/", true, /\.mdx$/)
-);
+    require.context("./pages/posts/", true, /\.mdx$/)
+).filter((post) => {
+    return post.module.meta.published instanceof Date;
+});

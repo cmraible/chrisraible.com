@@ -5,7 +5,8 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import BackgroundParticles from '../components/BackgroundParticles';
 import DiagonalSection from '../components/DiagonalSection';
-
+import { posts } from '../utils';
+import PostPreview from '../components/PostPreview';
 
 const Home = () => {
 
@@ -51,13 +52,18 @@ const Home = () => {
 
             </Stack>
           </Box>
-          {/* <Box align="center" justify="end">
-            <Text color="dark-4">Scroll</Text>
-            <FormDown color="dark-4" />
-          </Box> */}
+          { posts.length > 0 && (
             <DiagonalSection background="#272614">
+              <Heading>Latest Posts</Heading>
+
+              <Box gap="medium">
+                {posts.map((post, index) => (
+                  <PostPreview post={post} key={index} />
+                ))}
+              </Box>
 
             </DiagonalSection>
+          )}
         </Box>
       </React.Fragment>
   )

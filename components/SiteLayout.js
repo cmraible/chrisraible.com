@@ -1,4 +1,4 @@
-import { Main } from 'grommet';
+import { Box } from 'grommet';
 import React from 'react';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
@@ -6,11 +6,10 @@ import SiteHeader from './SiteHeader';
 const SiteLayout = ({children}) => {
 
   return (
-      <Main>
-        <SiteHeader />
-            {children}
+      <Box height={{min: '100vh'}} justify="between">
+        {children}
         <SiteFooter />
-      </Main>
+      </Box>
   )
 }
 

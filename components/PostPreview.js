@@ -1,6 +1,8 @@
-import { Box, Heading, Paragraph } from 'grommet';
+import { Box, Heading, Paragraph, Text } from 'grommet';
 import { useRouter } from 'next/router';
 import React from 'react';
+import {DateTime} from 'luxon';
+
 
 const PostPreview = ({ post }) => {
 
@@ -14,12 +16,11 @@ const PostPreview = ({ post }) => {
         <Box
             background={{color: 'white', opacity: 0.1}}
             pad="medium"
-            round='small'
             flex="shrink"
             onClick={() => router.push(`/posts${link}`).then(() => window.scrollTo(0, 0))}
         >
-            <Heading level={2}>{meta.title}</Heading>
-            <Paragraph level={3} color="text-weak">{meta.description}</Paragraph>
+            <Heading level={3} margin="none">{meta.title}</Heading>
+            <Text size="small" color="text-weak">Published {DateTime.fromJSDate(meta.published).toLocaleString()}</Text>
         </Box>
     )
 }

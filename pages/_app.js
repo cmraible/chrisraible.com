@@ -21,7 +21,7 @@ const App = ({ Component, pageProps }) => {
 
 
     return (
-            <Grommet theme={theme} id="grommetContainer">
+            <Grommet theme={theme} full id="grommetContainer">
                 <SiteLayout>
                     <Component {...pageProps} />
                 </SiteLayout>

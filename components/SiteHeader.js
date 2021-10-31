@@ -1,4 +1,4 @@
-import { Box, Button, Header, Heading } from 'grommet';
+import { Avatar,Box, Button, Header, Heading } from 'grommet';
 import { Github, Linkedin, Twitter } from 'grommet-icons';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -31,8 +31,9 @@ const SiteHeader = () => {
 
   return (
       <Header background={background} pad="small" id="siteHeader">
-        <Box direction="row" fill="horizontal" justify="between">
+        <Box background={background} direction="row" fill="horizontal" justify="between" pad="small">
           <Box direction="row" align="center" gap="small" onClick={() => router.push('/')}>
+            <Avatar src="/avatar.jpeg" size="48px" />
             <Heading color="text" size="small" margin="none">Chris Raible</Heading>
           </Box>
           <Box direction="row" align="center">

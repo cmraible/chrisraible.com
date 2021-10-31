@@ -78,7 +78,16 @@ const theme = {
     "diagram": {
       "line": {}
     },
-    "meter": {}
+    "anchor": {
+      "color": "black"
+    },
+    "meter": {},
+    "text": {
+      "resume": {
+        size: '14px',
+        height: '16px'
+      }
+    }
   }
 
 export default theme;

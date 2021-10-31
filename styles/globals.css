@@ -8,7 +8,7 @@ body {
 
 
 a {
-  color: inherit;
+  color: black;
   font-weight: bold;
 }
 
@@ -29,3 +29,21 @@ header#siteHeader {
   height: 50%;
   width: 100%;
 }
+
+@media print {
+  .no-print, .no-print *
+  {
+    display: none !important;
+  }
+
+  ::-webkit-scrollbar { display: none !important; }
+
+}
+
+.resume-list {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+  line-height: 18px;
+}
+

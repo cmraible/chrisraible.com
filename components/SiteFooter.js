@@ -1,4 +1,4 @@
-import { Box, Footer, Heading } from 'grommet';
+import { Box, Footer, Heading, Text } from 'grommet';
 import { useRouter } from 'next/router';
 import SocialLinks from './SocialLinks';
 import React from 'react';
@@ -7,7 +7,7 @@ const SiteFooter = () => {
   const router = useRouter();
 
   return (
-    <Box fill="horizontal" height="10vh">
+    <Box fill="horizontal" height="10vh" class="no-print">
       <Footer fill background="#CCCCCC" style={{width: '100%', zIndex: 1}} pad="medium" >
         <Box justify="between" fill="horizontal" direction="row">
           <Box onClick={() => router.push('/')}>

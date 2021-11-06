@@ -4,7 +4,7 @@ import { DateTime } from 'luxon'
 
 var sha512 = require('js-sha512');
 
-function ReactChroma() {
+function ReactRect() {
 
     const regenerate = () => {
         return sha512(DateTime.now().toISO()).replace(/\D/g,'')
@@ -25,42 +25,40 @@ function ReactChroma() {
     return (
         <Box width="500px" gap="small">
             <svg height="500px" width="500px" xmlns="http://www.w3.org/2000/svg">
+                
             <defs>
             <filter id="f1" x="0" y="0">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="50" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
             </filter>
             </defs>
                 <g filter="url(#f1)">
                 {
                     array.map((value, index) => {
                         return (
-                            <circle 
-                                style={{filter: `blur(${value[3]+1*2}px)`}} 
-                                cx={value[0]*50} 
-                                cy={value[1]*50} 
-                                r={value[2]*15} 
+                            <rect 
+                                height={value[0]*25} 
+                                width={value[1]*25}
+                                x={value[2]*50}
+                                y={value[3]*50}
                                 key={index} 
                                 fill={`rgb(${value[0]*25},${value[1]*25},${value[2]*25})`}
+                                stoke={`rgb(${value[0]*25+100},${value[1]*25+100},${value[2]*25+100})`}
+
+                                fillOpacity={`${value[3]*10}%`}
                             >
                                 <animate 
-                                    attributeName="r" 
-                                    values={`${value[2]*15};${value[0]*15};${value[2]*15}`} 
+                                    attributeName="x" 
+                                    values={`${value[2]*35};${value[0]*35};${value[2]*35}`} 
                                     dur={`${value[3]*5}s`} 
                                     repeatCount="indefinite" 
                                 />
                                 <animate 
-                                    attributeName="cx" 
-                                    values={`${value[0]*50};${value[3]*50};${value[0]*50}`} 
-                                    dur={`${value[0]*5}s`} 
+                                    attributeName="y" 
+                                    values={`${value[3]*35};${value[1]*35};${value[3]*35}`} 
+                                    dur={`${value[2]*5}s`} 
                                     repeatCount="indefinite" 
                                 />
-                                <animate 
-                                    attributeName="cy" 
-                                    values={`${value[1]*50};${value[2]*50};${value[1]*50}`} 
-                                    dur={`${value[1]*5}s`} 
-                                    repeatCount="indefinite" 
-                                />
-                            </circle>
+                            </rect>
                         )
                     })
                 }
@@ -72,4 +70,4 @@ function ReactChroma() {
     )
 }
 
-export default ReactChroma;
+export default ReactRect;

@@ -1,13 +1,10 @@
 import Post from '../../../components/Post'
 import Image from 'next/image';
-import ReactChroma from '../../../components/ReactChroma';
+import ReactRects from '../../../components/ReactRects';
 
 export const meta = {
   title: 'My first experiment with generative art',
-  published: new Date(2021, 10, 4),
   description: 'How I created a quick svg generative art project in the style of Chroma Theory',
-  cover: <Image src="/blurry_circles.svg" height="500" width="500" />,
-  cover_src: "/blurry_circles.svg" 
 }
 
 # Inspiration
@@ -22,7 +19,7 @@ There's a project live on Artblocks, a generative art / NFT platform, right now 
 # Result
 Here's my result below. You can click regenerate endlessly and each time it will generate a completely unique piece of abstract art, ultimately generated based on the exact timestamp you hit the regenerate button. 
 
-<ReactChroma />
+<ReactRects />
 
 # Code
 

@@ -23,7 +23,7 @@ const Home = () => {
                   height={{min: "90vh"}}
                 >
                   <Box direction="row-responsive" gap="medium" pad={{top: "large"}}>
-                    <Avatar src="/avatar.jpeg" size="96px" flex="false" />
+                    <Avatar src="/avatar.jpeg" size="96px" flex={false} />
                     <Box>
                       <Heading margin="none" size="medium">Hi, I'm Chris.</Heading>
                       <Paragraph>I'm living at the intersection of bits, atoms, and humans. I'm an engineer at Tesla by day and a developer/writer/designer by night.</Paragraph>

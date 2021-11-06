@@ -10,11 +10,11 @@ const Resume = () => {
   return (
       <React.Fragment>
         <Head>
-          <title>Chris Raible</title>
+          <title>Chris Raible Resumé</title>
           <meta name="description" content="Chris Raible's Resumé" />
         </Head>
         <Box align="center" id="resume">
-          <Box width="8.5in">
+          <Box width="8.5in" flex={false}>
             <Box justify="between" direction="row" align="center">
               <Text size="large" weight="bold">Chris Raible</Text>
               <Text><Anchor href="mailto:chris@chrisraible.com">chris@chrisraible.com</Anchor></Text>

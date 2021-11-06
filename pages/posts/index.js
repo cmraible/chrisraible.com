@@ -19,7 +19,7 @@ const Blog = () => {
     <React.Fragment>
       <Head>
         <title>Chris Raible | Web developer</title>
-        <meta name="description" content="Chris Raible is a web developer and industrial engineer." />
+        <meta name="description" content="" />
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
       <Box margin={{top: 'large'}} width="large" align="center" justify="start">

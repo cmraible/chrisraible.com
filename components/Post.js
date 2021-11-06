@@ -11,7 +11,7 @@ const Post = ({ children, meta }) => {
         </Head>
         <SiteHeader />
         <Box fill align="center">
-            <Box pad="medium" margin={{top: 'large'}} width="large" align="start" justify="start">
+            <Box pad="medium" width="large" align="start" justify="start">
                 <Heading margin={{bottom: 'none'}}>{meta.title}</Heading>
                 <Heading level={2} color="text-weak">{meta.description}</Heading>
                 {children}

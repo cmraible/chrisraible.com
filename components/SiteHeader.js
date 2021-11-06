@@ -30,11 +30,11 @@ const SiteHeader = () => {
   }, []);
 
   return (
-      <Header background={background} pad="small" id="siteHeader">
+      <Header background="background-contrast" pad="small" id="siteHeader" style={{zIndex: 99999}}>
         <Box background={background} direction="row" fill="horizontal" justify="between" pad="small">
           <Box direction="row" align="center" gap="small" onClick={() => router.push('/')}>
             <Avatar src="/avatar.jpeg" size="48px" />
-            <Heading color="text" size="small" margin="none">Chris Raible</Heading>
+            <Heading style={{whiteSpace: "nowrap"}} color="text" size="small" margin="none">Chris Raible</Heading>
           </Box>
           <Box direction="row" align="center">
             <Button icon={<Twitter color="gray" />} onClick={() => router.push('https://twitter.com/RaibleChris')}/>

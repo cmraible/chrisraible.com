@@ -1,4 +1,5 @@
 import Post from '../../../components/Post'
+import Image from 'next/image';
 
 export const meta = {
   title: 'Building a simple personal website with a blog for free - Part 1',
@@ -8,8 +9,67 @@ export const meta = {
 export default ({ children, meta }) => <Post meta={meta}>{children}</Post>;
 
 # Getting started with NextJS
+Getting started with NextJS is quick and easy. Before we get started, you need to have Node.js version 10.13 or later installed. If you don't already have Node.js installed, you can [install it from here](https://nodejs.org/en/).
 
+Once you have Node.js installed, you're ready to create your first NextJS app!
 
+To create your app, `cd` into the directory you want to create the app. Personally, I maintain a "Developer" directory in my user's home directory where I keep all my development projects.
+
+Run the following command in your terminal to create the skeleton of your NextJS app, replacing "personal-site" with the name of your project:
+```
+npx create-next-app personal-site
+```
+
+Next, `cd` into the directory that was just created and run the development server:
+```
+npm run dev
+```
+
+In your browser, navigate to localhost:3000 and you should see a page with a large "Welcome to Next.js!" heading.
 # Adding a UI framework - Grommet
+While you can certainly write your components using basic HTML tags, I prefer to use a UI framework, which has custom built components like cards, buttons, tabs, and various types of inputs all ready for use. My current UI framework of choice is called [Grommet](https://v2.grommet.io/).
+
+Grommet is my go-to for new projects because it allows you to quickly and easily create complex UIs, but it doesn't impose any particular styles for the most part. Grommet has a lot of great features:
+
+- Focus on accessibility so everyone can use your website without barriers
+- You can write your own theme (with dark mode built in) to style your application
+- Primitive components like Box, Header, and Footer to cover your basic layout needs
+- More complex components and inputs like accordions, file inputs, and charts
+
+To get started with grommet, run the following command to install grommet and styled components into your project:
+```
+npm install --save grommet styled-components
+```
+
+Then, you'll have to add the following code to your `/pages/_app.js` file that was created for you when you started the NextJS project:
+```
+import '../styles/globals.css'
+import { Grommet, grommet } from 'grommet';
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <Grommet theme={grommet}>
+      <Component {...pageProps} />
+    </Grommet>
+  )
+}
+
+export default MyApp
+```
+This code wraps your entire application in the Grommet element, which enables the use of Grommet components and styles inside your project. That's all you need to do to get started with Grommet!
 
 # Adding a blog with MDX
+Now comes the fun part! From a high level, we will:
+1. Install a few packages that allow our application to compile our Markdown code into HTML
+2. Create a `posts` directory, which will contain all our blog posts in Markdown/MDX format
+3. Create a few sample blog posts inside our `posts` directory to play around with
+3. Create a few utility functions which will grab our list of posts from the `posts` directory and make it available in our code
+3. Create a component to display an individual posts
+4. Create a component to display a preview of a post (for e.g. a list of posts)
+5. Create an index page for our blog, which will display all our posts
+
+First, we have to install a few additional packages:
+```
+npm install --save @next/mdx @mdx-js/loader
+```
+

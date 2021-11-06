@@ -25,7 +25,12 @@ function ReactChroma() {
     return (
         <Box width="500px" gap="small">
             <svg height="500px" width="500px">
-                <g className="blur">
+            <defs>
+            <filter id="f1" x="0" y="0">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="50" />
+            </filter>
+            </defs>
+                <g filter="url(#f1)">
                 {
                     array.map((value, index) => {
                         return (

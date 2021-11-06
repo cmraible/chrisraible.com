@@ -25,7 +25,7 @@ function ReactChroma() {
     return (
         <Box width="500px" gap="small">
             <svg height="500px" width="500px">
-                <g style={{filter: "blur(50px)"}}>
+                <g className="blur">
                 {
                     array.map((value, index) => {
                         return (

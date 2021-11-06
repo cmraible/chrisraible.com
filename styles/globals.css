@@ -58,3 +58,8 @@ code {
   color: lightgreen;
 }
 
+.blur {
+  filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
+

@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { Button, Box } from 'grommet'
-import { DateTime } from 'luxon'
 
-var sha512 = require('js-sha512');
+var sha256 = require('js-sha256');
 
 function ReactRect() {
 
     const regenerate = () => {
-        return sha512(DateTime.now().toISO()).replace(/\D/g,'')
+        return sha256(new Date().toString())
     }
     const initial = regenerate()
     const [seed, setSeed] = useState(initial)
@@ -15,10 +14,10 @@ function ReactRect() {
     let array = []
     for (let index = 0; index < seed.length; index++) {
         array.push([
-            seed.charAt(index), 
-            seed.charAt(index+1), 
-            seed.charAt(index+3), 
-            seed.charAt(index+4)
+            parseInt(seed.charAt(index), 16), 
+            parseInt(seed.charAt(index+1), 16), 
+            parseInt(seed.charAt(index+3), 16), 
+            parseInt(seed.charAt(index+4), 16)
         ])
     }
     
@@ -31,30 +30,29 @@ function ReactRect() {
                 <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
             </filter>
             </defs>
-                <g filter="url(#f1)">
+                <g>
                 {
                     array.map((value, index) => {
                         return (
                             <rect 
                                 height={value[0]*25} 
                                 width={value[1]*25}
-                                x={value[2]*50}
-                                y={value[3]*50}
+                                x={value[2]*30}
+                                y={value[3]*30}
                                 key={index} 
-                                fill={`rgb(${value[0]*25},${value[1]*25},${value[2]*25})`}
-                                stoke={`rgb(${value[0]*25+100},${value[1]*25+100},${value[2]*25+100})`}
-
-                                fillOpacity={`${value[3]*10}%`}
+                                fill={`rgb(${parseInt(seed.charAt(0), 16)*17},${parseInt(seed.charAt(1), 16)*17},${parseInt(seed.charAt(2), 16)*17})`}
+                                stroke={`rgb(${parseInt(seed.charAt(0), 16)*17},${parseInt(seed.charAt(1), 16)*17},${parseInt(seed.charAt(2), 16)*17})`}
+                                fillOpacity={`${parseInt(seed.charAt(4), 16)}%`}
                             >
-                                <animate 
+                                <animate
                                     attributeName="x" 
-                                    values={`${value[2]*35};${value[0]*35};${value[2]*35}`} 
+                                    values={`${value[1]*35};${value[0]*35};${value[1]*35}`} 
                                     dur={`${value[3]*5}s`} 
                                     repeatCount="indefinite" 
                                 />
-                                <animate 
+                                <animate
                                     attributeName="y" 
-                                    values={`${value[3]*35};${value[1]*35};${value[3]*35}`} 
+                                    values={`${value[0]*35};${value[1]*35};${value[0]*35}`} 
                                     dur={`${value[2]*5}s`} 
                                     repeatCount="indefinite" 
                                 />
@@ -65,7 +63,6 @@ function ReactRect() {
                 </g>
             </svg>
             <Button label="Regenerate" onClick={() => {setSeed(regenerate())}}/>
-
         </Box>
     )
 }

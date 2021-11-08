@@ -24,7 +24,7 @@ function ReactChroma() {
     
     return (
         <Box width="500px" gap="small">
-            <svg height="500px" width="500px" xmlns="http://www.w3.org/2000/svg">
+            <svg height="500px" width="500px">
             <defs>
             <filter id="f1" x="0" y="0">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="50" />

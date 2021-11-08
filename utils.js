@@ -9,4 +9,10 @@ export const posts = importAll(
     require.context("./pages/posts/", true, /\.mdx$/)
 ).filter((post) => {
     return post.module.meta.published instanceof Date;
+}).sort((a, b) => {
+    if (a.module.meta.published < b.module.meta.published) {
+        return 1
+    } else {
+        return -1
+    }
 });

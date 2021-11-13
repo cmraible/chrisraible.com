@@ -1,13 +1,13 @@
 import "animate.css/animate.min.css";
 import { Avatar, Box, Heading, Paragraph } from 'grommet';
 import Head from 'next/head';
-import Link from 'next/link';
 import React from 'react';
 import LatestPosts from '../components/LatestPosts';
 import SocialLinks from '../components/SocialLinks';
 
 
 const Home = () => {
+
 
   return (
       <React.Fragment>

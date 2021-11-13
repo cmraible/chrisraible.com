@@ -6,7 +6,7 @@ import SiteHeader from './SiteHeader';
 const SiteLayout = ({children}) => {
 
   return (
-      <Box fill justify="between" id="main">
+      <Box height={{min: '100vh'}} justify="between" id="main">
         {children}
         <SiteFooter />
       </Box>

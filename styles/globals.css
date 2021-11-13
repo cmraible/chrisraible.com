@@ -44,16 +44,3 @@ header#siteHeader {
   list-style-position: inside;
   line-height: 18px;
 }
-
-pre {
-  background-color: #333333;
-  padding: 12px;
-  color: #FFFFFF;
-  overflow-x: scroll;
-  width: 100%;
-  border-radius: 12px;
-}
-
-code {
-  color: lightgreen;
-}

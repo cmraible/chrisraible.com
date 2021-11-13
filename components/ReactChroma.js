@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
-import { Button, Box } from 'grommet'
-import { DateTime } from 'luxon'
+import { Box, Paragraph } from 'grommet';
+import React, { useState } from 'react';
 
 var sha512 = require('js-sha512');
 
 function ReactChroma() {
 
     const regenerate = () => {
-        return sha512(DateTime.now().toISO()).replace(/\D/g,'')
+        return sha512(new Date().toString()).replace(/\D/g,'')
     }
     const initial = regenerate()
     const [seed, setSeed] = useState(initial)
@@ -23,7 +22,7 @@ function ReactChroma() {
     }
     
     return (
-        <Box width="500px" gap="small">
+        <Box focusIndicator={false} width="500px" gap="small" onClick={() => {setSeed(regenerate())}}>
             <svg height="500px" width="500px">
             <defs>
             <filter id="f1" x="0" y="0">
@@ -66,8 +65,6 @@ function ReactChroma() {
                 }
                 </g>
             </svg>
-            <Button label="Regenerate" onClick={() => {setSeed(regenerate())}}/>
-
         </Box>
     )
 }

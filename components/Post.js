@@ -9,11 +9,10 @@ const Post = ({ children, meta }) => {
         <>
         <Head>
             <title>{meta.title}</title>
-            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@chrisraible" />
             <meta name="twitter:title" content={meta.title} />
             <meta name="twitter:description" content={meta.description} />
-            <meta name="twitter:image" content={meta.cover_src} />
         </Head>
         <SiteHeader />
         <Box fill align="center">

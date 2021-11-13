@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
-import { Button, Box } from 'grommet'
+import React from 'react'
+import { CodeBlock } from 'react-code-blocks'
 
-var sha256 = require('js-sha256');
+function ReactRects() {
+    return (
+        <div>
+            <CodeBlock
+                text={`import React, { useState } from 'react'
+import { Button, Box } from 'grommet'
+var sha256 = require('js-sha256')
 
 function ReactRect() {
 
@@ -22,7 +28,7 @@ function ReactRect() {
     }
     
     return (
-        <Box focusIndicator={false} width="500px" gap="small" onClick={() => {setSeed(regenerate())}}>
+        <Box width="500px" gap="small">
             <svg height="500px" width="500px" xmlns="http://www.w3.org/2000/svg">
                 
             <defs>
@@ -40,20 +46,20 @@ function ReactRect() {
                                 x={value[2]*30}
                                 y={value[3]*30}
                                 key={index} 
-                                fill={`rgb(${parseInt(seed.charAt(0), 16)*17},${parseInt(seed.charAt(1), 16)*17},${parseInt(seed.charAt(2), 16)*17})`}
-                                stroke={`rgb(${parseInt(seed.charAt(0), 16)*17},${parseInt(seed.charAt(1), 16)*17},${parseInt(seed.charAt(2), 16)*17})`}
-                                fillOpacity={`${parseInt(seed.charAt(4), 16)}%`}
+                                fill={\`rgb(\${parseInt(seed.charAt(0), 16)*17},\${parseInt(seed.charAt(1), 16)*17},\${parseInt(seed.charAt(2), 16)*17})\`}
+                                stroke={\`rgb(\${parseInt(seed.charAt(0), 16)*17},\${parseInt(seed.charAt(1), 16)*17},\${parseInt(seed.charAt(2), 16)*17})\`}
+                                fillOpacity={\`\${parseInt(seed.charAt(4), 16)}%\`}
                             >
                                 <animate
                                     attributeName="x" 
-                                    values={`${value[1]*35};${value[0]*35};${value[1]*35}`} 
-                                    dur={`${value[3]*5}s`} 
+                                    values={\`\${value[1]*35};\${value[0]*35};\${value[1]*35}\`} 
+                                    dur={\`\${value[3]*5}s\`} 
                                     repeatCount="indefinite" 
                                 />
                                 <animate
                                     attributeName="y" 
-                                    values={`${value[0]*35};${value[1]*35};${value[0]*35}`} 
-                                    dur={`${value[2]*5}s`} 
+                                    values={\`\${value[0]*35};\${value[1]*35};\${value[0]*35}\`} 
+                                    dur={\`\${value[2]*5}s\`} 
                                     repeatCount="indefinite" 
                                 />
                             </rect>
@@ -62,8 +68,17 @@ function ReactRect() {
                 }
                 </g>
             </svg>
+            <Button label="Regenerate" onClick={() => {setSeed(regenerate())}}/>
         </Box>
     )
 }
 
-export default ReactRect;
+export default ReactRect;`}    
+                language="javascript"
+                theme="Github"
+            />
+        </div>
+    )
+}
+
+export default ReactRects

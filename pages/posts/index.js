@@ -18,7 +18,7 @@ const Blog = () => {
   return (
     <React.Fragment>
       <Head>
-        <title>Chris Raible | Web developer</title>
+        <title>Chris Raible | Engineer. Code stuff. Horrible golfer.</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>

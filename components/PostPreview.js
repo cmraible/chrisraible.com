@@ -20,7 +20,7 @@ const PostPreview = ({ post }) => {
             onClick={() => router.push(`/posts${link}`).then(() => window.scrollTo(0, 0))}
         >
             <Heading level={3} margin="none">{meta.title}</Heading>
-            <Text size="small" color="text-weak">Published {DateTime.fromJSDate(meta.published).toLocaleString()}</Text>
+            <Paragraph>{meta.description}</Paragraph>
         </Box>
     )
 }

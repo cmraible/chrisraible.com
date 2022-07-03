@@ -13,21 +13,21 @@ export const meta = {
 }
 
 
-# What is a trading bot?
+## What is a trading bot?
 
 The basic premise of most trading bots is that you create a computer program that subscribes to market data — typically price and trading volume over time — and interprets that data to generate buy and sell signals. The bot will then send an API call to a broker, who will execute the trade on the bot’s behalf.
 
-# Trading Strategies
+## Trading Strategies
 
 For this project, we will use a simple trading strategy, which is the logic determining how you generate buy and sell signals. This is where the magic really happens. Creating and deploying a simple bot as I’ll demonstrate here is relatively easy — identifying a trading strategy that is profitable with minimal risk is a much more daunting challenge. Having a bot alone does not give you much of an advantage in the market, unless you have a solid trading strategy to go along with it. 
 
-# Caution
+## Caution
 
 For this tutorial, we will only use a paper trading account, meaning we’ll be trading with fake money with our broker. I strongly recommend you thoroughly backtest any strategy using historic data before deploying it to a live account with real money. Backtesting is basically testing how your trading strategy *would have performed* if you had used it in the past. This post won’t go into detail on backtesting, but you should definitely learn more about it before deploying any strategy with real money.
 
 The strategy introduced in this example is totally arbitrary and I don’t make any claims to it’s profitability — in fact, I bet it’s not very profitable at all compared to a reasonable benchmark. Also, this is not battle-tested, production ready code. This is a very simple proof of concept to get you started on algorithmic trading. There are many features I would add — detecting market open/close, text alerts for every trade, monitoring tools, etc — before deploying this with real money. **Please don’t just copy/paste this code and start trading with your actual money — that would be really, really stupid.**
 
-# Technical Overview
+## Technical Overview
 
 We’re going to write a Python script that calls Alpaca APIs. Alpaca is our broker. Just like any other broker, they allow us to buy and sell stocks, but unlike most brokers we can send them orders via an API call. They also recently introduced crypto trading, meaning you can trade Bitcoin and Ethereum algorithmically with this code, with some minor modifications.
 
@@ -40,7 +40,7 @@ The script will:
 
 In this post we will just write the script and get it working, running it locally on our own machine. In a future post, I’ll go into how you could deploy this bot to AWS so you don’t have to tie your personal computer up running this script 24/7.
 
-# Knowledge Assumptions
+## Knowledge Assumptions
 
 For this post, I’m assuming you have at least basic knowledge in:
 
@@ -48,11 +48,11 @@ For this post, I’m assuming you have at least basic knowledge in:
 - Git
 - UNIX Command Line
 
-# Writing and running the Python Script locally
+## Writing and running the Python Script locally
 
 The full code below can be found on [Github](https://github.com/cmraible/tradingbot).
 
-## Setting up git repository and installing Packages
+### Setting up git repository and installing Packages
 
 First, we need to setup a fresh working directory and git repository. Starting from a location you’ll remember in your command line — I prefer to keep a “Developer” folder for all my coding projects in my home directory — make a new git repository locally and call it tradingbot using:
 
@@ -83,7 +83,7 @@ pipenv install alpaca-trade-api pandas
 
 This will create a virtual environment and install the two packages listed. It will also create a Pipfile and a Pipefile.lock
 
-## Connecting to the websocket to get market data streamed live
+### Connecting to the websocket to get market data streamed live
 
 We want to connect to the Alpaca market data APIs to subscribe to minute-bar data via a websocket. Every minute, we’ll receive the open, high, low and close of the symbol over the previous minute. We’ll then query some historical data, calculate some technical indicators and determine if we want to buy or sell the stock.
 
@@ -96,7 +96,7 @@ The run() method will in turn call another method every minute, or every *bar �
 Open up your text editor to your tradingbot folder and create a new file for the class and call it TradingBot.py. This is where we’ll create our class:
 
 
-```python filename="TradingBot.py"
+```python filename=TradingBot.py
 
 from alpaca_trade_api import REST
 
@@ -201,7 +201,7 @@ Then you can run your code from the command line using the following command:
 pipenv run python -m main.py
 ```
 
-## Writing our strategy
+### Writing our strategy
 
 Now that we have the pipes connected, let’s get to the actual logic. First we query the data from Alpaca. We could also record the data locally as it comes in over the websocket, which would have some advantages in terms of speed, but for our purposes we’ll just fire off an API call to Alpaca to get our historical data. With the data in hand, we’ll calculate some technical indicators using [pandas](https://pandas.pydata.org/). We want to calculate a 20 and 50 period simple moving average.
 
@@ -278,7 +278,7 @@ else:
                 logging.info('Unable to complete order: %s' % e)
 ```
 
-## Version Control
+### Version Control
 
 Now that we have our script written, let’s commit it to our git repository. 
 
@@ -289,7 +289,7 @@ git commit -m 'initial commit'
 
 I highly recommend you get into the habit of committing every change to your strategy to version control before testing it with a reasonably detailed commit message describing the strategy — this way you can always roll back to a previous, more successful strategy very easily. You can also use git to maintain different branches of strategies, based on the general category.
 
-## Running our Script Locally
+### Running our Script Locally
 
 Just as you did before when we were testing the connection to the websocket, you can use the following command to run your script:
 
@@ -301,11 +301,11 @@ It will open up a persistent connection to the websocket that should last indefi
 
 However, running your bot locally has some disadvantages — mainly that you have to keep your computer open and awake. Personally I only have a laptop, so I would have to keep my laptop turned on and plugged in all day — not ideal, especially if we are making lots of money with this algorithm. Any downtime could potentially be very costly, so it would be better to have a more robust solution.
 
-# Code
+## Code
 
 The full code below can be found on [Github](https://github.com/cmraible/tradingbot).
 
-# Next Steps
+## Next Steps
 
 In a future post, I’ll go into detail on how to deploy our trading bot to AWS using Kubernetes and Docker, along with how to setup a CI/CD pipeline using CircleCI.
 

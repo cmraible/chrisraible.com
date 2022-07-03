@@ -1,6 +1,18 @@
-import { Anchor, Box, Heading, PageHeader } from 'grommet';
+import { MDXProvider } from '@mdx-js/react';
+import { Anchor, Box, Heading, Paragraph, PageHeader } from 'grommet';
+import Code from './Code';
+import Pre from './Pre';
 import Head from 'next/head';
 import SiteHeader from './SiteHeader';
+
+const components = {
+    h1: (props) => <Heading level={1} {...props}>{props.children}</Heading>,
+    h2: (props) => <Heading level={2} {...props}>{props.children}</Heading>,
+    h3: (props) => <Heading level={3} {...props}>{props.children}</Heading>,
+    p: (props) => <Paragraph fill={true}>{props.children}</Paragraph>,
+    pre: Pre,
+    code: Code
+  }
 
 const Post = ({ children, meta }) => {
     return (
@@ -21,7 +33,9 @@ const Post = ({ children, meta }) => {
                 subtitle={meta.description}
                 parent={<Anchor href="/" label="Home" />}
             />
-            {children}
+            <MDXProvider components={components}>
+                {children}
+            </MDXProvider>
             </Box>
             
         </Box>

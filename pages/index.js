@@ -32,7 +32,8 @@ const Home = () => {
                   </Box>  
                 </Box>
                 <Box 
-                  background="brand"                   
+                  background="brand"
+                  round={{size: "medium", corner: "left"}}                   
                   height={{min: "90vh"}}
                   fill="horizontal"
                   pad={{top: "large"}}

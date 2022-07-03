@@ -14,7 +14,9 @@ const PostPreview = ({ post }) => {
     } = post
     return (
         <Box
-            background={{color: 'white', opacity: 0.1}}
+            background={{color: 'white', opacity: 0.2}}
+            hoverIndicator={true}
+            round="medium"
             pad="medium"
             margin="small"
             flex="shrink"

@@ -16,6 +16,7 @@ const PostPreview = ({ post }) => {
         <Box
             background={{color: 'white', opacity: 0.1}}
             pad="medium"
+            margin="small"
             flex="shrink"
             onClick={() => router.push(`/posts${link}`).then(() => window.scrollTo(0, 0))}
         >

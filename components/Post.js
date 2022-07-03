@@ -1,8 +1,6 @@
-import React from 'react';
-import { Box, Heading, Text } from 'grommet';
-import Image from 'next/image';
-import SiteHeader from './SiteHeader';
+import { Anchor, Box, Heading, PageHeader } from 'grommet';
 import Head from 'next/head';
+import SiteHeader from './SiteHeader';
 
 const Post = ({ children, meta }) => {
     return (
@@ -18,10 +16,14 @@ const Post = ({ children, meta }) => {
         <Box fill align="center">
             <Box pad="medium" width="large" align="start" justify="start">
                 {meta.cover}
-                <Heading margin={{bottom: 'none'}}>{meta.title}</Heading>
-                <Heading size="small" level={2} color="text-weak">{meta.description}</Heading>
-                {children}
+                <PageHeader 
+                title={meta.title}
+                subtitle={meta.description}
+                parent={<Anchor href="/" label="Home" />}
+            />
+            {children}
             </Box>
+            
         </Box>
         </>
 

@@ -5,8 +5,8 @@ import { Anchor } from 'grommet'
 
 
 export const meta = {
-  title: 'Building a trading bot with Python',
-  description: 'How I built a simple stock/crypto trading bot using Python and Alpaca\'s broker APIs',
+  title: 'Building a crypto trading bot with Python',
+  description: 'How I built a simple crypto trading bot using Python and Alpaca\'s broker APIs',
   published: new Date(2022, 6, 1),
   cover: <Image src="/build-a-trading-bot-cover.jpg" height="400" width="800" />,
 }
@@ -28,7 +28,7 @@ The strategy introduced in this example is totally arbitrary and I don’t make 
 
 ## Technical Overview
 
-We’re going to write a Python script that calls Alpaca APIs. Alpaca is our broker. Just like any other broker, they allow us to buy and sell stocks, but unlike most brokers we can send them orders via an API call. They also recently introduced crypto trading, meaning you can trade Bitcoin and Ethereum algorithmically with this code, with some minor modifications.
+We’re going to write a Python script that calls Alpaca APIs. Alpaca is our broker. Just like any other broker, they allow us to buy and sell stocks and cryptocurrency, but unlike most brokers we can send them orders via an API call. They also recently introduced crypto trading, meaning you can trade Bitcoin and Ethereum algorithmically with this code, with some minor modifications.
 
 The script will:
 
@@ -84,7 +84,7 @@ This will create a virtual environment and install the two packages listed. It w
 
 ### Connecting to the websocket to get market data streamed live
 
-We want to connect to the Alpaca market data APIs to subscribe to minute-bar data via a websocket. Every minute, we’ll receive the open, high, low and close of the symbol over the previous minute. We’ll then query some historical data, calculate some technical indicators and determine if we want to buy or sell the stock.
+We want to connect to the Alpaca market data APIs to subscribe to minute-bar data via a websocket. Every minute, we’ll receive the open, high, low and close of the symbol over the previous minute. We’ll then query some historical data, calculate some technical indicators and determine if we want to buy or sell the symbol.
 
 Let’s start with a simple Python class.
 
@@ -109,7 +109,7 @@ class TradingBot():
         self.api_key = api_key
         self.secret_key = secret_key
         self.base_url = 'https://paper-api.alpaca.markets' # change this to live url when ready
-        self.stream_url = 'wss://stream.data.alpaca.markets/v2/sip'
+        self.stream_url = 'wss://stream.data.alpaca.markets/v1beta1/crypto'
         # Create api client object that can be accessed from any method
         self.api = REST(key_id=self.api_key, secret_key=self.secret_key, base_url=self.base_url)
 
@@ -139,10 +139,10 @@ class TradingBot():
     def run(self):
         '''Connect to websocket and continuously monitor for messages.'''
         # Create a stream object using api keys and base url
-        stream = Stream(self.api_key, self.secret_key, base_url=self.stream_url)
+        stream = Stream(self.api_key, self.secret_key, base_url=self.stream_url, crypto_exchanges=['FTXU'])
         # Subscribe to minute bars for the symbol passed to this class
         # On every bar, call the self.bar_callback method with the previous bar's data
-        stream.subscribe_bars(self.bar_callback, self.symbol)
+        stream.subscribe_crypto_bars(self.bar_callback, self.symbol)
 
         logging.info('Opening connection...')
         stream.run()
@@ -190,7 +190,7 @@ logging.basicConfig(handlers=[
 alpaca_api_key = os.environ.get('APAC_API_KEY_ID')
 alpaca_api_secret_key = os.environ.get('APAC_API_SECRET_KEY')
 
-bot = TradingBot(symbol='AAPL', api_key=alpaca_api_key, secret_key=alpaca_api_secret_key)
+bot = TradingBot(symbol='BTCUSD', api_key=alpaca_api_key, secret_key=alpaca_api_secret_key)
 bot.run()
 ```
 
@@ -219,7 +219,7 @@ async def bar_callback(self, t):
 		# Store data in a pandas dataframe to make calculating indicators easier
     # We could also store recent data in memory which would be faster
     logging.info('Retrieving recent bars for %s.' % (self.symbol))
-    bars = self.api.get_bars(self.symbol, TimeFrame.Minute).df
+    bars = self.api.get_crypto_bars(self.symbol, TimeFrame.Minute).df
     logging.info('Recent bars received.')
 
     # Calculate indicators using pandas pd.Series.rolling() method
@@ -239,7 +239,7 @@ def get_position(self):
 ```
 
 
-We’re going to buy the stock if the 20 minute simple moving average (sma20) moves above the 50 minute simple moving average (sma50). ****In other words, we want to buy the stock when the previous sma20 was below the previous sma50 **and** the current sma20 is above the current sma50. If those two conditions are true, it means the sma20 *just* crossed the sma50 while moving in an upward direction, hopefully indicating an uptrend in the stock price.
+We’re going to buy the symbol if the 20 minute simple moving average (sma20) moves above the 50 minute simple moving average (sma50). ****In other words, we want to buy the symbol when the previous sma20 was below the previous sma50 **and** the current sma20 is above the current sma50. If those two conditions are true, it means the sma20 *just* crossed the sma50 while moving in an upward direction, hopefully indicating an uptrend in the symbol's price.
 
 To do this, first we’ll set some convenience variables for accessing the current and previous simple moving averages. We’ll use pandas .iloc[] method to grab the most recent two bars received, and specifically grab the values of the sma20 and sma50. 
 
@@ -272,7 +272,7 @@ if not self.position:
             logging.info('Unable to complete order: %s' % (e))
 ```
 
-Buying stocks is great, but you don’t really make any money until you sell it, so next we’ll add the logic to determine when to sell the stock. In this case, we will sell the stock when the two moving averages cross again and hope that we made a profit:
+Buying is great, but you don’t really make any money until you sell it, so next we’ll add the logic to determine when to sell the symbol. In this case, we will sell the symbol when the two moving averages cross again and hope that we made a profit:
 
 ```python
 else:
@@ -321,4 +321,3 @@ The full code above can be found on [Github](https://github.com/cmraible/trading
 In a future post, I’ll go into detail on how to deploy our trading bot to AWS using Kubernetes and Docker, along with how to setup a CI/CD pipeline using CircleCI.
 
 export default ({ children, meta }) => <Post meta={meta}>{children}</Post>;
-

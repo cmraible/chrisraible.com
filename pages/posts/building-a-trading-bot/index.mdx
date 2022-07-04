@@ -227,6 +227,18 @@ async def bar_callback(self, t):
     bars['sma50'] = bars['close'].rolling(50).mean()
 ```
 
+We also need to write the self.get_position() method:
+```python
+def get_position(self):
+    '''Utility to retrieve our current position, or None from the API.''' 
+    try:
+        position = self.api.get_position(self.symbol)
+        return position
+    except:
+        return None
+```
+
+
 We’re going to buy the stock if the 20 minute simple moving average (sma20) moves above the 50 minute simple moving average (sma50). ****In other words, we want to buy the stock when the previous sma20 was below the previous sma50 **and** the current sma20 is above the current sma50. If those two conditions are true, it means the sma20 *just* crossed the sma50 while moving in an upward direction, hopefully indicating an uptrend in the stock price.
 
 To do this, first we’ll set some convenience variables for accessing the current and previous simple moving averages. We’ll use pandas .iloc[] method to grab the most recent two bars received, and specifically grab the values of the sma20 and sma50. 

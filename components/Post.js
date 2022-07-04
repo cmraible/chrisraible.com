@@ -28,11 +28,8 @@ const Post = ({ children, meta }) => {
         <Box fill align="center">
             <Box pad="medium" width="large" align="start" justify="start">
                 {meta.cover}
-                <PageHeader 
-                title={meta.title}
-                subtitle={meta.description}
-                parent={<Anchor href="/" label="Home" />}
-            />
+                <Heading level={1} margin="none">{meta.title}</Heading>
+                <Paragraph fill={true}>{meta.description}</Paragraph>
             <MDXProvider components={components}>
                 {children}
             </MDXProvider>

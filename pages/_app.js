@@ -2,6 +2,7 @@ import { Grommet } from 'grommet';
 import React, { useEffect } from 'react';
 import SiteLayout from '../components/SiteLayout';
 import '../styles/globals.css';
+import '../styles/github-dark.css';
 import theme from '../styles/theme';
 import { pageview } from '../lib/ga';
 import { useRouter } from 'next/router';

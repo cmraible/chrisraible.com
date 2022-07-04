@@ -7,8 +7,7 @@ import SocialLinks from '../components/SocialLinks';
 
 
 const Home = () => {
-
-
+  
   return (
       <React.Fragment>
         <Head>
@@ -33,7 +32,7 @@ const Home = () => {
                 </Box>
                 <Box 
                   background="brand"
-                  round={{size: "medium", corner: "left"}}                   
+                  round={{size: "medium", corner: "top-left"}}                   
                   height={{min: "90vh"}}
                   fill="horizontal"
                   pad={{top: "large"}}

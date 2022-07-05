@@ -1,0 +1,37 @@
+import Post from '../../../components/Post'
+import Image from 'next/image'
+import { Anchor } from 'grommet'
+
+
+
+export const meta = {
+  title: '5 cool things you didn\'t know you can do with Python',
+  description: 'Although Python is a fairly simple language to learn, you can do a lot of really interesting things with it!',
+  published: new Date(2022, 6, 3),
+  cover: <Image src="/pythonlogo.png" height="500" width="500" />,
+}
+
+Here are 5 things you didn’t know you could do with Python:
+
+## 1. Buy stocks and cryptocurrencies with Alpaca’s broker APIs
+
+[Alpaca](https://alpaca.markets/) is essentially a stock broker, but unlike most brokers, they allow you to make buy/sell orders using APIs instead of through a web interface like most brokers. This means you can write Python code that will call Alpaca’s APIs, and buy and sell stock on your behalf.
+
+## 2. Send a text message using Twilio
+
+[Twilio](https://www.twilio.com/) has a really neat API that allows you to send text messages to a given phone number. Using a few lines of Python code, you can send yourself or a friend a text message. This can be handy for building 2 factor authentication flows, sending text notifications or reminders.
+
+## 3. Send Ethereum over the blockchain
+
+Most Ethereum wallets have the functionality to send Ethereum to any valid Ethereum address. You can also do this with Python using [Web3.py](https://web3py.readthedocs.io/en/stable/) — a neat open-source package that makes it easier to interact with web3.
+
+## 4. Download your bank account transactions using Plaid
+
+Another cool API you can use with Python is [Plaid](https://plaid.com/), which offers integrations with your bank accounts, so you can retrieve things like transactions and account balances from all your different bank accounts. You’ve probably used Plaid as a customer before, if you’ve used any personal finance apps, but you can also use Plaid as a developer, to either create an application to share with others or just to help manage your own finances.
+
+## 5. Manage AWS infrastructure
+
+[AWS](https://aws.amazon.com/) publishes a [Python SDK](https://aws.amazon.com/sdk-for-python/) that allows you to manage — view, create and delete — most types of standard AWS infrastructure like EC2 instances and RDS databases. AWS is extremely powerful and opens up a whole work of computing at your fingertips — now you can orchestrate complex infrastructure using Python code to automate complex routines.
+
+
+export default ({ children, meta }) => <Post meta={meta}>{children}</Post>;

@@ -18,11 +18,11 @@ const Blog = () => {
   return (
     <React.Fragment>
       <Head>
-        <title>Chris Raible | Engineer. Code stuff. Horrible golfer.</title>
+        <title>Chris Raible | Posts</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
-      <Box margin={{top: 'large'}} width="large" align="center" justify="start">
+      <Box margin={{top: 'large'}} width="large">
         {posts.map((post) => (
           <PostPreview post={post} />
         ))}

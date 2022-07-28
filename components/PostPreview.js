@@ -1,7 +1,6 @@
-import { Box, Heading, Paragraph, Text } from 'grommet';
+import { Box, Heading, Paragraph } from 'grommet';
 import { useRouter } from 'next/router';
 import React from 'react';
-import {DateTime} from 'luxon';
 
 
 const PostPreview = ({ post }) => {
@@ -19,7 +18,6 @@ const PostPreview = ({ post }) => {
             round="medium"
             pad="medium"
             margin="small"
-            flex="shrink"
             onClick={() => router.push(`/posts${link}`).then(() => window.scrollTo(0, 0))}
         >
             <Heading level={3} margin="none">{meta.title}</Heading>

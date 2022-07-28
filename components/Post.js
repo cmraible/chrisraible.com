@@ -24,7 +24,6 @@ const Post = ({ children, meta }) => {
             <meta name="twitter:title" content={meta.title} />
             <meta name="twitter:description" content={meta.description} />
         </Head>
-        <SiteHeader />
         <Box fill align="center">
             <Box pad="medium" width="large" align="start" justify="start">
                 {meta.cover}

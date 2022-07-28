@@ -23,6 +23,7 @@ const Home = () => {
               round={{size: "medium", corner: "top-left"}}                   
               fill="horizontal"
               pad="medium"
+              height={{min: '60'}}
             >
               <SiteLinks />
             </Box>

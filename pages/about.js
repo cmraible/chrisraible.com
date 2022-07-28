@@ -22,8 +22,9 @@ const Home = () => {
                   round={{size: "medium", corner: "top-left"}}                   
                   fill="horizontal"
                   pad="medium"
+                  height={{min: '40vh'}}
                 >
-                  <Box pad={{top: "large"}}>
+                  <Box pad={{top: "large"}} height={{min: '40vh'}}>
                     <Heading margin="none">About me</Heading>
                     <Paragraph>
                       I like to write code and help people take advantage of all the internet has to offer. 

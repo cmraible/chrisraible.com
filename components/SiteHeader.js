@@ -7,7 +7,6 @@ const SiteHeader = () => {
     <Box
     fill="horizontal"
     pad="medium"
-    height={{min: "90vh"}}
   >
     <SiteHeadline /> 
   </Box>

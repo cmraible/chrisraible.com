@@ -16,12 +16,11 @@ const Home = () => {
           <meta name="description" content="" />
         </Head>
         <Box align="center" justify="start" fill>
-          <Box fill="horizontal" direction="row-responsive">
+          <Box fill="horizontal" direction="row-responsive" height={{min: '100vh'}}>
             <SiteHeader />
             <Box 
               background="brand"
               round={{size: "medium", corner: "top-left"}}                   
-              height={{min: "90vh"}}
               fill="horizontal"
               pad="medium"
             >

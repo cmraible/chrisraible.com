@@ -1,9 +1,10 @@
 import "animate.css/animate.min.css";
-import { Avatar, Box, Heading, Paragraph } from 'grommet';
+import { Box } from 'grommet';
 import Head from 'next/head';
 import React from 'react';
 import LatestPosts from '../components/LatestPosts';
-import SocialLinks from '../components/SocialLinks';
+import SiteHeader from '../components/SiteHeader';
+import SiteLinks from '../components/SiteLinks';
 
 
 const Home = () => {
@@ -16,29 +17,16 @@ const Home = () => {
         </Head>
         <Box align="center" justify="start" fill>
           <Box fill="horizontal" direction="row-responsive">
-                <Box
-                  fill="horizontal"
-                  pad="medium"
-                  height={{min: "90vh"}}
-                >
-                  <Box direction="row-responsive" gap="medium" pad={{top: "large"}}>
-                    <Avatar src="/avatar.jpeg" size="96px" flex={false} />
-                    <Box>
-                      <Heading margin="none" size="medium">Chris Raible</Heading>
-                      <Paragraph>Engineer. Code stuff. Horrible golfer.</Paragraph>
-                      <SocialLinks />
-                    </Box>
-                  </Box>  
-                </Box>
-                <Box 
-                  background="brand"
-                  round={{size: "medium", corner: "top-left"}}                   
-                  height={{min: "90vh"}}
-                  fill="horizontal"
-                  pad={{top: "large"}}
-                >
-                  <LatestPosts />
-                </Box>
+            <SiteHeader />
+            <Box 
+              background="brand"
+              round={{size: "medium", corner: "top-left"}}                   
+              height={{min: "90vh"}}
+              fill="horizontal"
+              pad="medium"
+            >
+              <SiteLinks />
+            </Box>
           </Box>
         </Box>
       </React.Fragment>

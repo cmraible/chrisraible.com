@@ -79,7 +79,8 @@ const theme = {
       "line": {}
     },
     "anchor": {
-      "color": "black"
+      "color": "text",
+      "textDecoration": "underline"
     },
     "meter": {},
     "text": {
